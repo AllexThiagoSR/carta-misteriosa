@@ -1,6 +1,7 @@
 const creatLetter = document.getElementById('criar-carta');
 const input = document.getElementById('carta-texto');
 const letter = document.getElementById('carta-gerada');
+const counter = document.getElementById('carta-contador');
 
 const styles = {
   style: ['newspaper', 'magazine1', 'magazine2'],
@@ -27,12 +28,24 @@ const addEvents = () => {
   }
 };
 
+const avoidEmptyStrings = (stringToAnalize) => {
+  const arrayOfString = [];
+  for (let index = 0; index < stringToAnalize.length; index += 1) {
+    if (stringToAnalize[index] !== '') {
+     arrayOfString.push(stringToAnalize[index]);
+    }
+  }
+  return arrayOfString;
+};
+
 creatLetter.addEventListener('click', () => {
   letter.innerHTML = '';
   if (input.value.match(/[a-z]/gi) === null || input.value === '') {
     letter.innerText = 'Por favor, digite o conteúdo da carta.';
   } else {
-    const wordsOfLetter = input.value.split(' ');
+    let wordsOfLetter = input.value.split(' ');
+    wordsOfLetter = avoidEmptyStrings(wordsOfLetter);
+    console.log(wordsOfLetter);
     for (let index = 0; index < wordsOfLetter.length; index += 1) {
       const span = document.createElement('span');
 
@@ -43,5 +56,6 @@ creatLetter.addEventListener('click', () => {
       console.log(letter.children);
     }
     addEvents();
+    counter.innerText = `${wordsOfLetter.length}`;
   }
 });

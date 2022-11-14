@@ -61,3 +61,7 @@ body {
 .skewright {
   transform: matrix(1, 0, -0.176327, 1, 0, 0);
 }
+
+p.big {
+  display: inline-block;
+}
