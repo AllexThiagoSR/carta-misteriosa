@@ -4,7 +4,9 @@ const letter = document.getElementById('carta-gerada');
 
 creatLetter.addEventListener('click', () => {
   letter.innerHTML = '';
-  if (input.value !== '') {
+  if (input.value.match(/[a-z]/gi) === null || input.value === '') {
+    letter.innerText = 'Por favor, digite o conteúdo da carta.'
+  } else {
     const wordsOfLetter = input.value.split(' ');
 
     for (let word of wordsOfLetter) {
