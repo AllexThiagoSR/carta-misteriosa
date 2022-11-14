@@ -17,15 +17,15 @@ const addClass = (span) => {
     const num = Math.floor(Math.random() * styles[key].length);
     span.classList.add(styles[key][num]);
   }
-}
+};
 
 const addEvents = () => {
-  for (let element of letter.children) {
-    element.addEventListener('click', (event) => {
+  for (let index = 0; index < letter.children.length; index += 1) {
+    letter.children[index].addEventListener('click', (event) => {
       addClass(event.target);
     });
   }
-}
+};
 
 creatLetter.addEventListener('click', () => {
   letter.innerHTML = '';
@@ -35,7 +35,7 @@ creatLetter.addEventListener('click', () => {
     const wordsOfLetter = input.value.split(' ');
     for (let index = 0; index < wordsOfLetter.length; index += 1) {
       const span = document.createElement('span');
-      
+
       addClass(span);
       span.innerText = wordsOfLetter[index];
       letter.appendChild(span);
