@@ -11,14 +11,14 @@ body {
 }
 
 .newspaper {
-  background-color: rgb(250, 235, 215);
+  background-color: antiquewhite;
   font-family: Times New Roman;
   font-weight: 700;
 }
 
 .magazine1 {
-  background-color: rgb(0, 128, 128);
-  color: rgb(255, 255, 255);
+  background-color: teal;
+  color: white;
   font-family: Verdana;
   font-weight: 900;
   text-transform: uppercase;
@@ -26,7 +26,7 @@ body {
 
 .magazine2 {
   background-image: url(images/pink-pattern.png);
-  color: rgb(255, 0, 255);
+  color: fuchsia;
   font-family: Verdana;
   font-weight: 900;
 }
