@@ -7,23 +7,23 @@ const styles = {
   height: ['medium', 'big', 'reallybig'],
   rotation: ['rotateleft', 'rotateright'],
   inclination: ['skewleft', 'skewright'],
-}
+};
 
 creatLetter.addEventListener('click', () => {
   letter.innerHTML = '';
   if (input.value.match(/[a-z]/gi) === null || input.value === '') {
-    letter.innerText = 'Por favor, digite o conteúdo da carta.'
+    letter.innerText = 'Por favor, digite o conteúdo da carta.';
   } else {
     const wordsOfLetter = input.value.split(' ');
-
-    for (let word of wordsOfLetter) {
+    for (let index = 0; index < wordsOfLetter.length; index += 1) {
       const span = document.createElement('span');
       const keys = Object.keys(styles);
-      for (let key of keys) {
-        const num = Math.floor(Math.random() * styles[key].length)
+      for (let index1 = 0; index1 < keys.length; index1 += 1) {
+        const key = keys[index1];
+        const num = Math.floor(Math.random() * styles[key].length);
         span.classList.add(styles[key][num]);
       }
-      span.innerText = word;
+      span.innerText = wordsOfLetter[index];
       letter.append(span);
       letter.innerHTML += ' ';
     }
